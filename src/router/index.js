@@ -1,55 +1,49 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/home'
-import page01 from '@/components/page01'
-import page02 from '@/components/page02'
-import page01A from '@/components/page01/page01-A'
-import page01B from '@/components/page01/page01-b'
-import pageEnd from '@/components/page01/B/end'
+import HelloWorld from '@/components/HelloWorld'
+import IndexPage from '@/page/indexPage'
+import page01A from '@/page/testPage/page01-a'
+import flexTest from "@/page/flexTest";
+import Table1 from '@/page/table/table1'
+const refTest = () => import('../page/testPage/refTest') //路由懒加载
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
     {
+      path: '*',
+      redirect: '/'
+    },
+    {
       path: '/',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/page01',
-      name: 'page01',
-      component: page01,
-      children: [
+      name: 'indexPage',
+      component: IndexPage,
+      children:[
         {
-          path: 'page01-a',
-          name: 'page01A',
-          component: page01A
-        },
-        {
-          path: 'page01-b',
-          name: 'page01B',
-          component: page01B,
-          children: [
-            {
-              path: 'end',
-              name: 'pageEnd',
-              component: pageEnd
-            }
-          ]
+          path:'table1',
+          name:'table1',
+          component: Table1
         }
       ]
     },
     {
-      path: '/page02',
-      name: 'page02',
-      component: page02
+      path: '/HelloWorld',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/refTest',
+      name: 'refTest',
+      component: refTest
     }
   ]
 })
-
+//导航守卫 监听路由 路由跳转会触发
+router.beforeEach(function (to,from,next) {
+  next() //必须用next()
+})
+router.afterEach(function (to, from) {
+})
+export default router
