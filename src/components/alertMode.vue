@@ -3,10 +3,14 @@
   <div class="modal-backdrop">
     <div class="modal" >
       <div class="modal-header">
-        <h3>标题</h3>
+        <slot name="title">
+          <h3>标题</h3>
+        </slot>
       </div>
       <div class="modal-body">
-        <p>内容</p>
+        <slot name="content">
+          <p>内容</p>
+        </slot>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-close" @click="closeSelf">关闭</button>
@@ -27,10 +31,10 @@
     },
     methods: {
       closeSelf() {
-        this.$emit("closeme");
+        this.$emit("closeAlert");
       },
       confirm () {
-
+        this.$emit('confirm')
       }
     }
   }

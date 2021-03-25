@@ -1,3 +1,70 @@
+//首要导航条数据
+const catalogData = [
+  {
+    key:1,
+    faName:'表格',
+    childName:[
+      {
+        name:'表格1',
+        path: '/table1'
+      },
+      {
+        name:'表格2',
+        path: '/table2'
+      }],
+    catalogFlag: false,
+    path:''
+  },
+  {
+    key:2,
+    faName:'tag标签',
+    childName:[],
+    catalogFlag: false,
+    path:''
+  },
+  {
+    key:3,
+    faName:'进度条',
+    childName:[],
+    catalogFlag: false,
+    path:''
+  },
+  {
+    key:4,
+    faName:'分页',
+    childName:[],
+    catalogFlag: false,
+    path:''
+  },
+  {
+    key:5,
+    faName:'弹出框',
+    childName:[],
+    catalogFlag: false,
+    path: '/alertPage'
+  },
+  {
+    key:6,
+    faName:'ref与子父组件',
+    childName:[],
+    catalogFlag: false,
+    path:'/refTest'
+  },
+  {
+    key:7,
+    faName:'手机页面',
+    childName:[],
+    catalogFlag: false,
+    path:'/phoneTest'
+  },
+  {
+    key:8,
+    faName:'窗口获取',
+    childName:[],
+    catalogFlag: false,
+    path:'/watchWindow'
+  }
+]
 
 const races = {
   1: {
@@ -101,4 +168,4 @@ const classIdToIcon = (id) => {
   return classes[id].icon
 }
 
-export { raceIdToName, classIdToIcon, classes }
+export { raceIdToName, classIdToIcon, classes,catalogData}

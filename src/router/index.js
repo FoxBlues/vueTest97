@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import IndexPage from '@/page/indexPage'
 import page01A from '@/page/testPage/page01-a'
 import flexTest from "@/page/flexTest";
@@ -9,6 +8,7 @@ import Table2 from '@/page/table/table2'
 const refTest = () => import('../page/testPage/refTest') //路由懒加载
 const phoneTest = () => import('../page/phoneTest/phoneTest') //路由懒加载
 const alertPage = () =>import('../page/testPage/alertPage')
+const watchWindow = () =>import('../page/testPage/watchWindow')
 
 Vue.use(Router)
 
@@ -43,13 +43,13 @@ const router = new Router({
           path: 'alertPage',
           name: 'alertPage',
           component: alertPage
-        }
+        },
+        {
+          path: 'watchWindow',
+          name: 'watchWindow',
+          component: watchWindow
+        },
       ]
-    },
-    {
-      path: '/HelloWorld',
-      name: 'HelloWorld',
-      component: HelloWorld
     },
     {
       path: '/phoneTest',

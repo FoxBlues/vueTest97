@@ -3,7 +3,7 @@
     <button class="btn" @click="goAlert(0)">提示框</button>
     <button class="btn" @click="goAlert(1)">弹出修改框</button>
     <msg-alert v-show="msgAlertShow" @closeMsg="closeAlert(0)"></msg-alert>
-    <alertMode v-show="alertModeShow" @closeme="closeAlert(1)"></alertMode>
+    <alertMode v-show="alertModeShow" @closeAlert="closeAlert(1)"></alertMode>
   </div>
 </template>
 

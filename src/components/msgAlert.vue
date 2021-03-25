@@ -1,6 +1,6 @@
 <template>
   <div class="modal-backdrop" @click="closeMsg">
-    <div class="msgAlert">{{msg}}</div>
+    <div class="msgAlert"><div class="msg">{{msg}}</div></div>
   </div>
 </template>
 
@@ -47,7 +47,10 @@
     line-height: 50px;
     text-align: center;
     border-radius: 16px;
-    background-color: white;
+    background-color: rgba(0,0,0,0.5);
     z-index: 9;
+  }
+  .msg {
+    color:white;
   }
 </style>
