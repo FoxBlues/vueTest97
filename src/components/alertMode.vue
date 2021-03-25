@@ -1,19 +1,18 @@
 
 <template>
   <div class="modal-backdrop">
-    <div class="modal" :style="mainStyles">
+    <div class="modal" >
       <div class="modal-header">
-        <h3>我是一个Modal的标题</h3>
+        <h3>标题</h3>
       </div>
       <div class="modal-body">
-        <p>我是一个Modal的内容</p>
+        <p>内容</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-close" @click="closeSelf">关闭</button>
         <button type="button" class="btn-confirm" @click="confirm">确认</button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -21,7 +20,6 @@
   export default {
     name: 'Modal',
     props: {
-
     },
     data() {
       return {
@@ -38,7 +36,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .modal-backdrop {
     position: fixed;
     top: 0;

@@ -1,12 +1,14 @@
 <template>
   <div class="mainDiv">
     <div class="leftDiv">
-      <div class="topDiv"></div>
+      <div class="topDiv">
+        <div class="backBtn" @click="backBtn">返回</div>
+      </div>
       <div class="catalog">
         <div v-for="item in catalogData" class="catalogFa" :key="item.key">
           <div class="catalogFather" @click="catalogFatherOp(item.key)" :id="'catalogFather-'+ item.key">{{item.faName}}</div>
           <template v-if="item.childName && item.childName.length>0 && item.catalogFlag">
-            <div class="catalogChild" v-for="childItem in item.childName" @click.stop="catalogChildOp()">{{childItem.name}}</div>
+            <div class="catalogChild" v-for="childItem in item.childName" @click.stop="catalogChildOp(childItem.path)">{{childItem.name}}</div>
           </template>
         </div>
       </div>
@@ -38,34 +40,39 @@
                   path: '/table1'
                 },
                 {
-                  name:'表格2'
+                  name:'表格2',
+                  path: '/table2'
                 }],
               catalogFlag: false,
-              path: ''
+              path:''
             },
             {
               key:2,
               faName:'tag标签',
               childName:[],
-              catalogFlag: false
+              catalogFlag: false,
+              path:''
             },
             {
               key:3,
               faName:'进度条',
               childName:[],
-              catalogFlag: false
+              catalogFlag: false,
+              path:''
             },
             {
               key:4,
               faName:'分页',
               childName:[],
-              catalogFlag: false
+              catalogFlag: false,
+              path:''
             },
             {
               key:5,
               faName:'弹出框',
               childName:[],
-              catalogFlag: false
+              catalogFlag: false,
+              path: '/alertPage'
             },
             {
               key:6,
@@ -73,28 +80,59 @@
               childName:[],
               catalogFlag: false,
               path:'/refTest'
+            },
+            {
+              key:7,
+              faName:'手机页面',
+              childName:[],
+              catalogFlag: false,
+              path:'/phoneTest'
             }
-          ]
+          ],
+          //菜单栏最后点击对象
+          catalogOldClick : 0
         }
       },
       computed: {
       },
       methods: {
+        backBtn () {
+          this.$router.go(-1)
+        },
         catalogFatherOp (key) {
           this.catalogData.forEach((item)=>{
             if(item.key===key) {
-              item.catalogFlag = !item.catalogFlag
-              if (key === 6) {
-                this.$router.push(item.path)
+              if (key === 1) {
+                item.catalogFlag = !item.catalogFlag
               }
+              if (!!item.path) {
+                //如果不是重复点击，点了其他选项
+                if (key !== this.catalogOldClick) {
+                  this.initCatalog()
+                }
+
+                if (key !== 1 && !item.catalogFlag) {
+                  this.$router.push(item.path)
+                  item.catalogFlag = !item.catalogFlag
+                  console.log(item.path)
+                }
+              }
+              this.catalogOldClick = key
               //item.catalogFlag = true
               //item.childName[1] = '时间'+ this.count
               //this.$set(item.childName,1,this.count)
             }
           })
         },
-        catalogChildOp() {
-          this.$router.push({path:'/table1',query: {tableId:11,other:'22'}})
+        initCatalog () {
+          this.catalogData.forEach((item) => {
+            item.catalogFlag = false
+            //this.$router.push('/')
+          })
+        },
+        catalogChildOp(path) {
+          console.log(path)
+          this.$router.push({path:path,query: {tableId:11,other:'22'}})
         }
       }
     }
@@ -120,6 +158,13 @@
   .topDiv {
     flex:0 0 30px;
     background-color: black;
+  }
+  .backBtn {
+    width: 50px;
+    line-height: 30px;
+    background-color: #cccccc;
+    text-align: center;
+    color: white;
   }
   .catalog {
     flex: 1;

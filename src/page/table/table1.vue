@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <alertMode v-show="showModal" v-on:closeme="closeme"></alertMode>
+<!--    <alertMode v-show="showModal" :closeme="closeme"></alertMode>-->
   </div>
 </template>
 
