@@ -91,6 +91,7 @@
     border-radius: 2px;
   }
   .table2 {
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     align-items: center;
@@ -99,15 +100,17 @@
     min-height: 60%;
     max-height: 90%;
     overflow-x: auto;
+    padding: 10px;
   }
   .table_1,.table_2,.table_last {
     display: flex;
     justify-content: center;
-    width: 97%;
+    width: 100%;
+    box-sizing: border-box;
     background-color: white;
     border-radius: 10px;
-    margin-top: 5px;
-    padding: 1%;
+    margin-bottom: 5px;
+    padding: 10px;
   }
   .table_last {
     min-height: 200px;

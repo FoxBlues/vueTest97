@@ -1,6 +1,6 @@
 <template>
   <div class="refClass">
-    <test-components ref="components1" :msg="'父组件向子组件发送的字符串'" @childClick="getChildClickMig"></test-components>
+    <test-components ref="components1" :msg="msg" @childClick="getChildClickMig"></test-components>
     <msg-alert v-show="isShow" :msg="childMsg" @closeMsg="close"></msg-alert>
   </div>
 </template>
@@ -8,13 +8,15 @@
 <script>
   import TestComponents from "../../components/testComponents";
   import msgAlert from "../../components/msgAlert";
+  import { mapState } from 'vuex'
   export default {
     name: "refTest",
     components: {TestComponents,msgAlert},
     data () {
       return {
         isShow:false,
-        childMsg:''
+        childMsg:'',
+        msg: '父组件向子组件发送的字符串'
       }
     },
     mounted() {

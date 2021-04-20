@@ -63,6 +63,20 @@ const catalogData = [
     childName:[],
     catalogFlag: false,
     path:'/watchWindow'
+  },
+  {
+    key:9,
+    faName:'变形测试',
+    childName:[],
+    catalogFlag: false,
+    path:'/transformPage'
+  },
+  {
+    key:10,
+    faName:'ajax测试',
+    childName:[],
+    catalogFlag: false,
+    path:'/ajaxTest'
   }
 ]
 

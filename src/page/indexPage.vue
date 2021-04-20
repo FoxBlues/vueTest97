@@ -17,7 +17,9 @@
       <div class="rightDiv">
         <div class="headDiv"></div>
         <div class="centerDiv">
-          <router-view></router-view>
+          <transition name="tran">
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
     </template>
@@ -95,6 +97,7 @@
                 this.$router.push(item.path)
                 item.catalogFlag = !item.catalogFlag
                 console.log(item.path)
+                console.log(12)
               }
             }
             this.catalogOldClick = key
@@ -203,5 +206,16 @@
     bottom:0;
     left: 0;
     min-height: 44px;
+  }
+  /*进入特效*/
+  .tran-enter-active {
+    transition: opacity 1s;
+  }
+  /*离开特效  .1s  代表0.1s cubic-bezier(2.0, 0.5, 0.8, 1.0)代表一种特殊的曲线*/
+  .tran-leave-active {
+    transition: opacity .1s cubic-bezier(2.0, 0.5, 0.8, 1.0);
+  }
+  .tran-enter, .fade-leave-to {
+    opacity: 0;
   }
 </style>

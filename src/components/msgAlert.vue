@@ -5,28 +5,39 @@
 </template>
 
 <script>
-    export default {
-        name: "msgAlert",
-        data() {
-          return {
-            msgData: ''
-          }
-        },
-        props:{
-          msg:{
-            type:String,
-            default:'这是个提示框!'
-          }
-        },
-        created() {
-          this.msgData = this.msg
-        },
-        methods: {
-          closeMsg () {
-            this.$emit('closeMsg')
-          }
-        }
+  export default {
+    name: "msgAlert",
+    data() {
+      return {
+        msgData: ''
+      }
+    },
+    props:{
+      msg:{
+        type:String,
+        default:'这是个提示框!'
+      },
+      timeOut:{
+        default: 2000
+      }
+    },
+    created() {
+      this.msgData = this.msg
+    },
+    mounted() {
+      setTimeout(()=>{
+        this.closeMsg()
+      },this.timeOut)
+    },
+    updated() {
+      console.log(22)
+    },
+    methods: {
+      closeMsg () {
+        this.$emit('closeMsg')
+      }
     }
+  }
 </script>
 
 <style scoped>

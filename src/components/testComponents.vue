@@ -1,5 +1,5 @@
 <template>
-  <h3 class="text-center red">子组件向父组件发射信息-<a @click="clickChild">点击</a></h3>
+  <h3 class="text-center red">子组件向父组件发射信息-<button @click="clickChild">点击</button></h3>
 </template>
 
 <script>

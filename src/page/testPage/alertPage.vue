@@ -2,7 +2,7 @@
   <div class="alertPage">
     <button class="btn" @click="goAlert(0)">提示框</button>
     <button class="btn" @click="goAlert(1)">弹出修改框</button>
-    <msg-alert v-show="msgAlertShow" @closeMsg="closeAlert(0)"></msg-alert>
+    <msg-alert v-if="msgAlertShow" @closeMsg="closeAlert(0)"></msg-alert>
     <alertMode v-show="alertModeShow" @closeAlert="closeAlert(1)"></alertMode>
   </div>
 </template>
@@ -10,9 +10,10 @@
 <script>
   import alertMode from "../../components/alertMode";
   import msgAlert from "../../components/msgAlert";
+  import buttonTransform from "../../components/buttonTransform";
   export default {
     name: "alertPage",
-    components:{alertMode,msgAlert},
+    components:{alertMode,msgAlert,buttonTransform},
     data () {
       return {
         alertModeShow:false,

@@ -3,10 +3,13 @@
     <router-view/>
   </div>
 </template>
-
 <script>
+import vuexUnload from "./assets/js/vuexUnload";
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    // vuexUnload.unloadInit.call(this)
+  }
 }
 </script>
 <style>

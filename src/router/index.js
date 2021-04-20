@@ -9,6 +9,8 @@ const refTest = () => import('../page/testPage/refTest') //路由懒加载
 const phoneTest = () => import('../page/phoneTest/phoneTest') //路由懒加载
 const alertPage = () =>import('../page/testPage/alertPage')
 const watchWindow = () =>import('../page/testPage/watchWindow')
+const transformPage = () =>import('../page/testPage/transformPage')
+const ajaxTest = () =>import('../page/testPage/ajaxTest')
 
 Vue.use(Router)
 
@@ -49,6 +51,16 @@ const router = new Router({
           name: 'watchWindow',
           component: watchWindow
         },
+        {
+          path: 'transformPage',
+          name: 'transformPage',
+          component: transformPage
+        },
+        {
+          path: 'ajaxTest',
+          name: 'ajaxTest',
+          component: ajaxTest
+        }
       ]
     },
     {
