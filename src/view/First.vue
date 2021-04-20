@@ -9,7 +9,7 @@
         name: "First",
         data(){
           return {
-            msg: "welcome to firstApp"
+            msg: "welcome to firstApp123"
           }
         }
     }
