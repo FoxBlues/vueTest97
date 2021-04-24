@@ -77,6 +77,13 @@ const catalogData = [
     childName:[],
     catalogFlag: false,
     path:'/ajaxTest'
+  },
+  {
+    key:11,
+    faName:'表单测试',
+    childName:[],
+    catalogFlag: false,
+    path:'/fromTest'
   }
 ]
 

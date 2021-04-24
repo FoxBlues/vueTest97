@@ -30,9 +30,15 @@
         this.childMsg = val
         this.isShow = true
       },
-      close () {
+      close (data) {
         this.isShow = false
+        console.log(data)
       }
+    },
+    computed: {
+      ...mapState({
+        testUrl: state => state.testUrl
+      })
     }
   }
 </script>

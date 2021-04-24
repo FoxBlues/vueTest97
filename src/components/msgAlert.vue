@@ -34,7 +34,7 @@
     },
     methods: {
       closeMsg () {
-        this.$emit('closeMsg')
+        this.$emit('closeMsg',{str:'子传父'})
       }
     }
   }

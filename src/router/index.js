@@ -11,6 +11,7 @@ const alertPage = () =>import('../page/testPage/alertPage')
 const watchWindow = () =>import('../page/testPage/watchWindow')
 const transformPage = () =>import('../page/testPage/transformPage')
 const ajaxTest = () =>import('../page/testPage/ajaxTest')
+const fromTest = () => import('../page/testPage/fromTest')
 
 Vue.use(Router)
 
@@ -60,6 +61,11 @@ const router = new Router({
           path: 'ajaxTest',
           name: 'ajaxTest',
           component: ajaxTest
+        },
+        {
+          path: 'fromTest',
+          name: 'fromTest',
+          component: fromTest
         }
       ]
     },
@@ -73,6 +79,7 @@ const router = new Router({
 })
 //导航守卫 监听路由 路由跳转会触发
 router.beforeEach(function (to,from,next) {
+  console.log(to)
   next() //必须用next()
 })
 router.afterEach(function (to, from) {
